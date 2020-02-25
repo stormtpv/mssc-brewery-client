@@ -1,15 +1,14 @@
 package md.teroschin.msscbreweryclient.web.client;
 
-import java.net.URI;
-import java.util.UUID;
-
+import md.teroschin.msscbreweryclient.web.model.BeerDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import java.net.URI;
+import java.util.UUID;
 
-import md.teroschin.msscbreweryclient.web.model.BeerDto;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 class BreweryClientTest {
@@ -18,13 +17,19 @@ class BreweryClientTest {
     private BreweryClient breweryClient;
 
     @Test
-    void getBeerById() {
+    void testGetBeerById() {
         final BeerDto beerDto = breweryClient.getBeerById(UUID.randomUUID());
         assertNotNull(beerDto);
     }
 
     @Test
-    void saveNewBeer() {
+    void testUpdateBeer() {
+        final BeerDto beerDto = BeerDto.builder().beerName("New Beer").build();
+        breweryClient.updateBeer(UUID.randomUUID(), beerDto);
+    }
+
+    @Test
+    void testSaveNewBeer() {
         final BeerDto beerDto = BeerDto.builder().beerName("New Beer").build();
 
         final URI uri = breweryClient.saveNewBeer(beerDto);
