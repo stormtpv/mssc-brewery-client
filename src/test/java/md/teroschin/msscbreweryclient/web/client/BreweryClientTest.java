@@ -36,4 +36,9 @@ class BreweryClientTest {
 
         assertNotNull(uri);
     }
+
+    @Test
+    void testDeleteBeer() {
+        breweryClient.deleteBeer(UUID.randomUUID());
+    }
 }
