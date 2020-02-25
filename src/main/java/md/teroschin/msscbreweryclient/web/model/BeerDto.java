@@ -1,15 +1,12 @@
-package guru.springframework.msscbreweryclient.web.model;
+package md.teroschin.msscbreweryclient.web.model;
+
+import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.UUID;
-
-/**
- * Created by jt on 2019-04-20.
- */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
