@@ -1,5 +1,6 @@
 package md.teroschin.msscbreweryclient.web.client;
 
+import java.net.URI;
 import java.util.UUID;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -27,5 +28,9 @@ public class BreweryClient {
 
     public BeerDto getBeerById(final UUID beerId) {
         return restTemplate.getForObject(apiHost + BEER_PATH_V1 + beerId.toString(), BeerDto.class);
+    }
+
+    public URI saveNewBeer(final BeerDto beerDto) {
+        return restTemplate.postForLocation(apiHost + BEER_PATH_V1, beerDto);
     }
 }

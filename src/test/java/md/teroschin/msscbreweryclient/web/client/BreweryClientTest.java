@@ -1,5 +1,6 @@
 package md.teroschin.msscbreweryclient.web.client;
 
+import java.net.URI;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
@@ -20,5 +21,14 @@ class BreweryClientTest {
     void getBeerById() {
         final BeerDto beerDto = breweryClient.getBeerById(UUID.randomUUID());
         assertNotNull(beerDto);
+    }
+
+    @Test
+    void saveNewBeer() {
+        final BeerDto beerDto = BeerDto.builder().beerName("New Beer").build();
+
+        final URI uri = breweryClient.saveNewBeer(beerDto);
+
+        assertNotNull(uri);
     }
 }
