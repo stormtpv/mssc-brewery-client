@@ -15,7 +15,7 @@ import md.teroschin.msscbreweryclient.web.model.CustomerDto;
 @ConfigurationProperties(value = "sfg.brewery", ignoreUnknownFields = false)
 public class CustomerClient {
 
-    public final String CUSTOMER_PATH_V1 = "/customer/api/v1/";
+    private static final String CUSTOMER_PATH_V1 = "/api/v1/customer/";
 
     private final RestTemplate restTemplate;
 
